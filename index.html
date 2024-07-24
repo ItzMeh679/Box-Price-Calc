@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+</div>  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Price Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h2>Box Price Calculator</h2>
+    <form id="boxForm">
+      <div>
+        <label for="length">Length:</label>
+        <input type="number" id="length" value="10">
+      </div>
+      <div>
+        <label for="width">Width:</label>
+        <input type="number" id="width" value="10">
+      </div>
+      <div>
+        <label for="height">Height:</label>
+        <input type="number" id="height" value="5">
+      </div>
+      <div>
+        <label for="boxType">Box Type:</label>
+        <select id="boxType">
+          <option value="Universal">Universal</option>
+          <option value="TwoSideFlap">Two Side Flap</option>
+          <option value="DownSideInterlock">Down Side Interlock</option>
+        </select>
+      </div>
+    </form>
+    <button id="calculateSheetSizeBtn">Calculate Sheet Size</button>
+    <div id="sheetSizeResult"></div>
+    
+    <h3>Weight Calculation</h3>
+    <div>
+      <label for="plySelect">Ply:</label>
+      <select id="plySelect">
+        <option value="3">3 Ply</option>
+        <option value="5">5 Ply</option>
+        <option value="7">7 Ply</option>
+      </select>
+    </div>
+    <div id="layersContainer">
+      <div class="layer" id="AllLayers">
+        <div>
+          <label for="type0">Type:</label>
+          <select class="type" id="type0">
+            <option value="Natural">Natural</option>
+            <option value="Golden">Golden</option>
+          </select>
+        </div>
+        <div>
+          <label for="gsm0">GSM:</label>
+          <select class="gsm" id="gsm0">
+            <option value="100">100</option>
+            <option value="120">120</option>
+            <option value="140">140</option>
+            <option value="150">150</option>
+            <option value="180">180</option>
+            <option value="210">210</option>
+          </select>
+        </div>
+        <div>
+          <label for="bf0">BF:</label>
+          <select class="bf" id="bf0">
+            <!-- BF options will be populated based on type and GSM -->
+          </select>
+        </div>
+      </div>
+    </div>
+    <button id="calculateWeightBtn">Calculate Weight</button>
+    <div id="weightResult"></div>
+
+    <h3>Price Calculation</h3>
+    <div>
+      <label for="laborCharge">Labor Charge:</label>
+      <input type="number" id="laborCharge" value="5">
+    </div>
+    <button id="calculateBoxPriceBtn">Calculate Box Price</button>
+    <div id="boxPriceResult1"></div>
+    <div id="boxPriceResult"></div>
+    
+    <div>
+      <label for="profitMargin">Profit Margin (%):</label>
+      <input type="number" id="profitMargin" value="20">
+    </div>
+    <button id="calculateFinalPriceBtn">Calculate Final Price</button>
+    <div id="finalPriceResult"></div>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    </div> 
+  <script src="script.js"></script>
+</body>
+</html>
