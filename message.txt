@@ -1,0 +1,95 @@
+class Product:
+    def __init__(self, name, price, category):
+        self.name = name
+        self.price = price
+        self.category = category
+
+    def display_info(self):
+        print(f"Name: {self.name}, Price: ${self.price}, Category: {self.category}")
+
+
+class Electronics(Product):
+    def __init__(self, name, price, category, brand):
+        super().__init__(name, price, category)
+        self.brand = brand
+
+    def display_info(self):
+        super().display_info()
+        print(f"Brand: {self.brand}")
+
+
+class Clothing(Product):
+    def __init__(self, name, price, category, size):
+        super().__init__(name, price, category)
+        self.size = size
+
+    def display_info(self):
+        super().display_info()
+        print(f"Size: {self.size}")
+
+
+class Books(Product):
+    def __init__(self, name, price, category, author):
+        super().__init__(name, price, category)
+        self.author = author
+
+    def display_info(self):
+        super().display_info()
+        print(f"Author: {self.author}")
+
+
+class ShoppingCart:
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, product):
+        self.items.append(product)
+
+    def remove_item(self, product):
+        self.items.remove(product)
+
+    def calculate_total_price(self):
+        total_price = sum(item.price for item in self.items)
+        return total_price
+
+
+class Payment:
+    def process_payment(self, amount):
+        pass
+
+
+class CreditCard(Payment):
+    def process_payment(self, amount):
+        print(f"Processing credit card payment of ${amount}")
+
+
+class PayPal(Payment):
+    def process_payment(self, amount):
+        print(f"Processing PayPal payment of ${amount}")
+
+
+class Cash(Payment):
+    def process_payment(self, amount):
+        print(f"Payment of ${amount} received in cash")
+
+
+if __name__ == "__main__":
+    laptop = Electronics("Laptop", 1200, "Electronics", "Dell")
+    t_shirt = Clothing("T-Shirt", 20, "Clothing", "M")
+    book = Books("Python Programming", 30, "Books", "John Smith")
+
+    laptop.display_info()
+    t_shirt.display_info()
+    book.display_info()
+
+    cart = ShoppingCart()
+
+    cart.add_item(laptop)
+    cart.add_item(t_shirt)
+    cart.add_item(book)
+
+    total_price = cart.calculate_total_price()
+    print(f"Total Price: ${total_price}")
+
+    payment_method = CreditCard()
+    payment_method.process_payment(total_price)
